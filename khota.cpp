@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 
+/* Defining Book class to manage book objects */
 class Book {
 private:
     int id;

@@ -9,7 +9,13 @@ int str::leng(const char* ptr)const {
 	}
 	return count;
 }
-
+int str::amount()const {
+    int count = 0;
+    for (int i = 0; this->ptr[i] != '\0'; i++) {
+        count++;
+    }
+    return count;
+}
 str::str() {
 	//cout << "default constructor" << endl;
 	caps = 0;

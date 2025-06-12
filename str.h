@@ -13,7 +13,7 @@ public:
 	str(const str& s);
 	str(const char* ptr);
 	str(char a);
-
+    int str::amount()const;
 
 	str& operator=(const str& s);
 	char operator[](int index)const;

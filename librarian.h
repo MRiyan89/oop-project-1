@@ -1,8 +1,10 @@
 #ifndef LIBRARIAN_H
 #define LIBRARIAN_H
 #include <iostream>
+#include<fstream>
 #include "global.h"
 #include "str.h"
+#include"log.h"
 using namespace std;
 class Librarian
 {
@@ -14,5 +16,7 @@ public:
     void searchLibrarain(Librarian* &);
     void modifyLibrarain(Librarian* &);
     void showAllLibrarain();
+    void serialize(fstream& f);
+    void deserialize(fstream& f);
 };
 #endif

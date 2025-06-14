@@ -3,6 +3,9 @@
 using namespace std;
 void Librarian :: showAllLibrarain(){
     cout<<"\n     LIBRARIAN NO. "<<librarian_no<<"\n\nNAME : "<<librarian_name<<"\nID : "<<librarian_id<<"\nPassword : "<<librarain_password;
+    str msg("Entire detail seen of Librarian named: ");
+    str msg2(msg + librarian_name);
+    Logger::record(msg2);
     cin.get();
 }
 
@@ -19,6 +22,9 @@ void Librarian::addLibrarain(){
     cin.getline(temp, 100);
     librarain_password = temp;
     cout<<"\nLibrarian DETAILS ADDED SUCCESSFULLY";
+    str msg("A new Librarian added named: ");
+    str msg2(msg + librarian_name);
+    Logger::record(msg2);
     cin.get();
 }
 
@@ -47,6 +53,9 @@ void Librarian :: deleteLibrarain(Librarian *&b1){
         l3--;
         cout<<"\nLibrarian DELETED SUCCESSFULLY: ";
     }
+    str msg("deleted record of Librarian named: ");
+    str msg2(msg + librarian_name);
+    Logger::record(msg2);
 }
 
 void Librarian :: searchLibrarain(Librarian *& b1){
@@ -60,6 +69,10 @@ void Librarian :: searchLibrarain(Librarian *& b1){
     for(int i=0; i<l3; i++){
         if(ser_lib == b1[i].librarian_id || ser_lib == b1[i].librarian_name){
             b1[i].showAllLibrarain();
+            str msg("Searched for a Librarian named: ");
+            str msg2(msg + librarian_name);
+            Logger::record(msg2);
+
             flag = 1;
         }
     }
@@ -67,6 +80,7 @@ void Librarian :: searchLibrarain(Librarian *& b1){
         cout<<"\nLibrarian NOT FOUND!";
         cin.get();
     }
+    
 }
 
 void Librarian ::modifyLibrarain(Librarian *& b1){
@@ -82,6 +96,9 @@ void Librarian ::modifyLibrarain(Librarian *& b1){
             b1[i].addLibrarain();
             flag = 1;
             cout<<"\nLibrarian "<<b1[i].librarian_no<<" SUCCESSFULLY MODIFIED: ";
+            str msg("Modified a Librarian named: ");
+            str msg2(msg + librarian_name);
+            Logger::record(msg2);
             cin.get();
         }
     }
@@ -89,4 +106,60 @@ void Librarian ::modifyLibrarain(Librarian *& b1){
         cout<<"\nLibrarian NOT FOUND!";
         cin.get();
     }
+
+}
+
+void Librarian :: serialize(fstream& f) {
+    char* temp=nullptr;
+    f.write((char*)&librarian_no, sizeof(int));
+    int len = librarian_name.amount();
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = librarian_name[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    len = librarian_id.amount();
+    delete[] temp;
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = librarian_id[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    len = librarain_password.amount();
+    delete[] temp;
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = librarain_password[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    delete[] temp;
+}
+
+void Librarian :: deserialize(fstream& f) {
+    f.read((char*)&librarian_no, sizeof(int));
+    int len;
+    f.read((char*)&len, sizeof(int));
+    char* temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    librarian_name = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    librarian_id = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    librarain_password = temp;
+    delete[] temp;
 }

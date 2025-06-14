@@ -1,0 +1,54 @@
+Log file initialized.
+Program started.
+A Librarian details shown.
+A Librarian searched.
+A Librarian details shown.
+A Librarian searched.
+Program ended
+Log file initialized.
+Program started.
+A record of Librarian deleted.
+Program ended
+Log file initialized.
+Program started.
+A new Librarian added.
+Program ended
+Log file closed.
+
+Log file initialized.
+Program started.
+A new Librarian added.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new Librarian added.lib4
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new Librarian added named: lib 5
+deleted record of Librarian named: sample librarian
+Entire detail seen of book named: book1
+Entire detail seen of book named: book1
+Entire detail seen of book named: book1
+Entire detail seen of book named: book1
+Entire detail seen of book named: book1
+A new student account added named: std2
+A new faculty account added named: flt1
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+

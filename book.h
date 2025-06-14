@@ -1,8 +1,10 @@
 #ifndef BOOK_H
 #define BOOK_H
 #include<iostream>
+#include<fstream>
 #include "global.h"
 #include"str.h"
+#include"log.h"
 using namespace std;
 class Books
 {
@@ -14,5 +16,7 @@ public:
     void search_book(Books* &);
     void modify_book(Books* &);
     void show_all_books();
+    void serialize(fstream& f);
+    void deserialize(fstream& f);
 };
 #endif

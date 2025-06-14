@@ -3,6 +3,9 @@
 using namespace std;
 void Books :: show_all_books(){
     cout<<"\n     Book no. "<<book_no<<"\n\nName : "<<book_name<<"\nAuthor : "<<book_author<<"\nGenre : "<<book_type<<"\nCode : "<<book_code;
+    str msg("Entire detail seen of book named: ");
+    str msg2(msg + book_name);
+    Logger::record(msg2);
     cin.get();
 }
 
@@ -22,6 +25,9 @@ void Books::add_book() {
     cin.getline(temp, 100);
     book_code = temp;
     cout<<"\nBOOK DETAILS ADDED SUCCESSFULLY";
+    str msg("A new book added named: ");
+    str msg2(msg + book_name);
+    Logger::record(msg2);
     cin.get();
 }
 
@@ -51,6 +57,9 @@ void Books :: delete_book(Books* &b1){
         a1--;
         cout<<"\nBOOK DELETED SUCCESSFULLY: ";
     }
+    str msg("deleted record of book named: ");
+    str msg2(msg + book_name);
+    Logger::record(msg2);
 }
 
 void Books :: search_book(Books* &b1){
@@ -72,6 +81,11 @@ void Books :: search_book(Books* &b1){
         cout<<"\nBOOK NOT FOUND!";
         cin.get();
     }
+    else{
+        str msg("Searched for a book named: ");
+        str msg2(msg + book_name);
+        Logger::record(msg2);
+        }
 }
 
 void Books :: modify_book(Books* &b1){
@@ -87,6 +101,9 @@ void Books :: modify_book(Books* &b1){
             b1[i].add_book();
             flag = 1;
             cout<<"\nBOOK "<<b1[i].book_no<<" SUCCESSFULLY MODIFIED: ";
+            str msg("Modified a book named: ");
+            str msg2(msg + book_name);
+            Logger::record(msg2);
             cin.get();
         }
     }
@@ -94,4 +111,76 @@ void Books :: modify_book(Books* &b1){
         cout<<"\nBOOK NOT FOUND!";
         cin.get();
     }
+    
+}
+void Books :: serialize(fstream& f) {
+    char* temp= nullptr;
+    f.write((char*)&book_no, sizeof(int));
+    int len = book_name.amount();
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = book_name[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    len = book_author.amount();
+    delete[] temp;
+    temp = new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = book_author[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    
+    len = book_type.amount();
+    delete[] temp;
+    temp = new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = book_type[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    
+    len = book_code.amount();
+    delete[] temp;
+    temp = new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = book_code[i];
+    }
+    temp[len]='\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    delete[] temp;
+}
+
+void Books :: deserialize(fstream& f) {
+    f.read((char*)&book_no, sizeof(int));
+    int len;
+    f.read((char*)&len, sizeof(int));
+    char* temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    book_name = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    book_author = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    book_type = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    book_code = temp;
+    delete[] temp;
 }

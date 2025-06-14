@@ -13,8 +13,11 @@ public:
 	str(const str& s);
 	str(const char* ptr);
 	str(char a);
-    int str::amount()const;
-
+    int amount()const;
+    str appendind(const str& s) {
+        return *this + s;
+    }
+    char* getPtr() const { return ptr; }
 	str& operator=(const str& s);
 	char operator[](int index)const;
 	char& operator[](int index);

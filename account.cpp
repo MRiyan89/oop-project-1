@@ -3,6 +3,9 @@
 using namespace std;
 void Account :: showAllAccount(){
     cout<<"\n     Account NO. "<<account_no<<"\n\nNAME : "<<account_name<<"\nType : "<<account_type<<"\nID : "<<account_id<<"\nPASSWORD : "<<account_password;
+    str msg("Entire detail seen of account named: ");
+    str msg2(msg + account_name);
+    Logger::record(msg2);
     cin.get();
 }
 
@@ -17,10 +20,16 @@ void Account :: addAccount(){
         cout<<"\nEnter Type of the person: \n1- STUDENT\n2- FACULTY MEMBER : ";
         cin>>a;
         cin.ignore();
-        if(a==1)
+        if(a==1){
             account_type = "STUDENT";
-        else if(a==2)
+            str msg("A new student account added named: ");
+            str msg2(msg + account_name);
+            Logger::record(msg2);}
+        else if(a==2){
             account_type = "FACULTY MEMBER";
+            str msg("A new faculty account added named: ");
+            str msg2(msg + account_name);
+            Logger::record(msg2);}
         else{
             cout<<"Wrong input!";
             a=0;
@@ -50,8 +59,7 @@ void Account :: deleteAccount(Account* &b1){
         }
     }
     if(index == 0){
-        cout<<"ACCOUNT NOT FOUND!";
-        cin.get();
+        throw str("Account not found!");
     }
     else{
         for(int i=index-1; i<p1-1; i++){
@@ -61,6 +69,9 @@ void Account :: deleteAccount(Account* &b1){
         p1--;
         cout<<"\nACCOUNT DELETED SUCCESSFULLY: ";
     }
+    str msg("deleted record of an acocunt named: ");
+    str msg2(msg + account_name);
+    Logger::record(msg2);
 }
 
 void Account ::searchAccount(Account *& b1){
@@ -74,12 +85,14 @@ void Account ::searchAccount(Account *& b1){
     for(int i=0; i<p1; i++){
         if(ser_account == b1[i].account_name || ser_account == b1[i].account_id){
             b1[i].showAllAccount();
+            str msg("Searched for an account named: ");
+            str msg2(msg + account_name);
+            Logger::record(msg2);
             flag = 1;
         }
     }
     if( flag == 0){
-        cout<<"\nACCOUNT NOT FOUND!";
-        cin.get();
+        throw str("Account not found!");
     }
 }
 
@@ -96,11 +109,92 @@ void Account ::modifyAccount(Account *& b1){
             b1[i].addAccount();
             flag = 1;
             cout<<"\nACCOUNT "<<b1[i].account_no<<" SUCCESSFULLY MODIFIED: ";
+            str msg("Modified an account named: ");
+            str msg2(msg + account_name);
+            Logger::record(msg2);
             cin.get();
         }
     }
     if(flag == 0){
         cout<<"\nACCOUNT NOT FOUND!";
         cin.get();
+    }
+}
+
+void Account :: serialize(fstream& f) {
+    char* temp = nullptr;
+    f.write((char*)&account_no, sizeof(int));
+    f.write((char*)&book_no, sizeof(int));
+    int len = account_name.amount();
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = account_name[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    len = account_type.amount();
+    delete[] temp;
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = account_type[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    len = account_id.amount();
+    delete[] temp;
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = account_id[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    len = account_password.amount();
+    delete[] temp;
+    temp=new char[len];
+    for(int i = 0; i < len; i++) {
+        temp[i] = account_password[i];
+    }
+    temp[len] = '\0';
+    f.write((char*)&len, sizeof(int));
+    f.write(temp, len);
+    delete[] temp;
+    for(int i = 0; i < book_no; i++) {
+        f.write((char*)&book[i], sizeof(int));
+    }
+}
+
+void Account :: deserialize(fstream& f) {
+    f.read((char*)&account_no, sizeof(int));
+    f.read((char*)&book_no, sizeof(int));
+    int len;
+    f.read((char*)&len, sizeof(int));
+    char* temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    account_name = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    account_type = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    account_id = temp;
+    delete[] temp;
+    f.read((char*)&len, sizeof(int));
+    temp = new char[len + 1];
+    f.read(temp, len);
+    temp[len] = '\0';
+    account_password = temp;
+    delete[] temp;
+    for(int i = 0; i < book_no; i++) {
+        f.read((char*)&book[i], sizeof(int));
     }
 }

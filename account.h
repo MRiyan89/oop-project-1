@@ -1,8 +1,10 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 #include <iostream>
+#include <fstream>
 #include "str.h"
 #include "global.h"
+#include"log.h"
 using namespace std;
 class Account{
 public:
@@ -14,5 +16,7 @@ public:
     void searchAccount(Account* &);
     void modifyAccount(Account* &);
     void showAllAccount();
+    void serialize(fstream& f);
+    void deserialize(fstream& f);
 };
 #endif

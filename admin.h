@@ -8,8 +8,8 @@ protected:
     str ID , Password;
 public:
     Admin(){
-        ID = "t";
-        Password = "t";
+        ID = "admin";
+        Password = "admin";
     };
 };
 #endif

@@ -23,7 +23,7 @@ int Login :: getter( Account* &a3 ,Librarian* &l1){
     Menu m1;
     int condition = 0;
     for(int i=0; i<p1; i++){
-        if(a3[i].account_name == id && a3[i].account_password == password){
+        if(a3[i].account_id == id && a3[i].account_password == password){
             if(a3[i].account_type=="STUDENT"){
                 return 1;
             }

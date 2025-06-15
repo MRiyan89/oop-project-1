@@ -18,5 +18,7 @@ public:
     void showAllAccount();
     void serialize(fstream& f);
     void deserialize(fstream& f);
+    bool namepresent(Account* accounts, const str& name);
+    bool idpresent(Account* accounts, const str& id);
 };
 #endif

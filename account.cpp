@@ -1,6 +1,24 @@
 #include<iostream>
 #include "account.h"
 using namespace std;
+
+bool Account::namepresent(Account* b1, const str& name) {
+    for (int i = 0; i < p1; i++) {
+        if (b1[i].account_name == name) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Account::idpresent(Account* b1, const str& id) {
+    for (int i = 0; i < p1; i++) {
+        if (b1[i].account_id == id) {
+            return true;
+        }
+    }
+    return false;
+}
 void Account :: showAllAccount(){
     cout<<"\n     Account NO. "<<account_no<<"\n\nNAME : "<<account_name<<"\nType : "<<account_type<<"\nID : "<<account_id<<"\nPASSWORD : "<<account_password;
     str msg("Entire detail seen of account named: ");
@@ -11,14 +29,17 @@ void Account :: showAllAccount(){
 
 void Account :: addAccount(){
     if (p1 >= 10) {
+        str msg("Tried to add a new account but failed due to limit reached.");
+        Logger::record(msg);
         throw str("Maximum account limit reached");
     }
     int a = 0;
     char temp[100];
     cout<<"\n               ADD ACCOUNT NO. "<<account_no<< " DETAIL'S";
-    cout<<"\n\nEnter Name of the person: ";
-    cin.getline(temp, 100);
-    account_name = temp;
+        cout<<"\n\nEnter Name of the person: ";
+        cin.getline(temp, 100);
+        account_name = temp;
+        
     do{
         cout<<"\nEnter Type of the person: \n1- STUDENT\n2- FACULTY MEMBER : ";
         cin>>a;
@@ -50,6 +71,8 @@ void Account :: addAccount(){
 
 void Account :: deleteAccount(Account* &b1){
     if (p1 <= 0) {
+        str msg("Tried to delete an account.");
+        Logger::record(msg);
         throw str("No accounts available to delete");
     }
     char temp[100];
@@ -65,6 +88,9 @@ void Account :: deleteAccount(Account* &b1){
         }
     }
     if(index == 0){
+        str msg("Record not found for deletion of account named: ");
+        str msg2(msg + del_account);
+        Logger::record(msg2);
         throw str("Account not found!");
     }
     else{
@@ -76,12 +102,14 @@ void Account :: deleteAccount(Account* &b1){
         cout<<"\nACCOUNT DELETED SUCCESSFULLY: ";
     }
     str msg("deleted record of an acocunt named: ");
-    str msg2(msg + account_name);
+    str msg2(msg + del_account);
     Logger::record(msg2);
 }
 
 void Account ::searchAccount(Account *& b1){
     if (p1 <= 0) {
+        str msg("Tried to search for an account.");
+        Logger::record(msg);
         throw str("No accounts available to search");
     }
     char temp[100];
@@ -95,18 +123,23 @@ void Account ::searchAccount(Account *& b1){
         if(ser_account == b1[i].account_name || ser_account == b1[i].account_id){
             b1[i].showAllAccount();
             str msg("Searched for an account named: ");
-            str msg2(msg + account_name);
+            str msg2(msg + ser_account);
             Logger::record(msg2);
             flag = 1;
         }
     }
     if( flag == 0){
+        str msg("Record not found of account named: ");
+        str msg2(msg + ser_account);
+        Logger::record(msg2);
         throw str("Account not found!");
     }
 }
 
 void Account ::modifyAccount(Account *& b1){
     if (p1 <= 0) {
+        str msg("Tried to modify an account.");
+        Logger::record(msg);
         throw str("No accounts available to modify");
     }
     char temp[100];
@@ -122,12 +155,15 @@ void Account ::modifyAccount(Account *& b1){
             flag = 1;
             cout<<"\nACCOUNT "<<b1[i].account_no<<" SUCCESSFULLY MODIFIED: ";
             str msg("Modified an account named: ");
-            str msg2(msg + account_name);
+            str msg2(msg + mod_account);
             Logger::record(msg2);
             cin.get();
         }
     }
     if(flag == 0){
+        str msg("Record not found for modification of account named: ");
+        str msg2(msg + mod_account);
+        Logger::record(msg2);
         throw str("ACCOUNT NOT FOUND!");
     }
 }

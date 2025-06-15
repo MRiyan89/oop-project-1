@@ -11,6 +11,8 @@ void Books :: show_all_books(){
 
 void Books::add_book() {
     if (a1 >= 10) {
+        str msg("Tried to add a new book but failed due to limit reached.");
+        Logger::record(msg);
         throw str("Maximum book limit reached");
     }
     char temp[100];
@@ -36,6 +38,8 @@ void Books::add_book() {
 
 void Books :: delete_book(Books* &b1){
     if (a1 <= 0) {
+        str msg("Tried to delete a book.");
+        Logger::record(msg);
         throw str("No books available to delete");
     }
     str del_book;
@@ -50,8 +54,10 @@ void Books :: delete_book(Books* &b1){
             index=i+1;
         }
     }
-
     if(index == 0){
+        str msg("Record not found for deletion of book named: ");
+        str msg2(msg + del_book);
+        Logger::record(msg2);
         throw str("BOOK NOT FOUND!");
     }
     else{
@@ -63,12 +69,14 @@ void Books :: delete_book(Books* &b1){
         cout<<"\nBOOK DELETED SUCCESSFULLY: ";
     }
     str msg("deleted record of book named: ");
-    str msg2(msg + book_name);
+    str msg2(msg + del_book);
     Logger::record(msg2);
 }
 
 void Books :: search_book(Books* &b1){
     if (a1 <= 0) {
+        str msg("Tried to search for a book.");
+        Logger::record(msg);
         throw str("No books available to search");
     }
     str ser_book;
@@ -86,17 +94,22 @@ void Books :: search_book(Books* &b1){
         }
     }
     if(flag == 0){
+        str msg("Record not found of book named: ");
+        str msg2(msg + ser_book);
+        Logger::record(msg2);
         throw str("BOOK NOT FOUND!");
     }
     else{
         str msg("Searched for a book named: ");
-        str msg2(msg + book_name);
+        str msg2(msg + ser_book);
         Logger::record(msg2);
         }
 }
 
 void Books :: modify_book(Books* &b1){
     if (a1 <= 0) {
+        str msg("Tried to modify a book.");
+        Logger::record(msg);
         throw str("No books available to modify");
     }
     str mod_book;
@@ -112,12 +125,15 @@ void Books :: modify_book(Books* &b1){
             flag = 1;
             cout<<"\nBOOK "<<b1[i].book_no<<" SUCCESSFULLY MODIFIED: ";
             str msg("Modified a book named: ");
-            str msg2(msg + book_name);
+            str msg2(msg + mod_book);
             Logger::record(msg2);
             cin.get();
         }
     }
     if(flag == 0){
+        str msg("Record not found for modification of book named: ");
+        str msg2(msg + mod_book);
+        Logger::record(msg2);
         throw str("BOOK NOT FOUND!");
     }
     

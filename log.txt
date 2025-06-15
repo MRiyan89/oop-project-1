@@ -52,3 +52,99 @@ Program started.
 Program ended
 Log file closed.
 
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Login error!!
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Login error!!
+
+Log file initialized.
+Program started.
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+Login error!!
+
+Log file initialized.
+Program started.
+Login error!!
+Login error!!
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Program ended
+Log file closed.
+

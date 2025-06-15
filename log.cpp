@@ -6,15 +6,11 @@ using namespace std;
 ofstream Logger::logfile;
 
 void Logger::initialize() {
-    //cout << "Initializing log file..." << endl;
     logfile.open("log.txt", ios::app);
-    //cout << "Log file opened." << endl;
     if (!logfile.is_open()) {
-        //cout << "ni chal raha j" << endl;
         cerr << "Error: Could not open log file." << endl;
     } 
     else {
-        //cout << "Log file is open." << endl;
         logfile << "\nLog file initialized.\n";
     }
 }
@@ -29,7 +25,6 @@ void Logger::record(const str& message) {
     if (logfile.is_open()) {
         for (int i = 0; i < message.amount(); i++) {
             logfile << temp[i];
-            //cout << temp[i];
         }
         logfile << endl;
     } else {
@@ -39,7 +34,6 @@ void Logger::record(const str& message) {
 
 void Logger::close() {
     if (logfile.is_open()) {
-        //cout << "Closing log file..." << endl;
         logfile << "Log file closed.\n\n";
         logfile.close();
     }

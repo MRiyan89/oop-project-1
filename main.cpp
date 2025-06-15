@@ -13,9 +13,7 @@ int l3 = 0;
 
 int main(){
     Singleton *s = s->getInstance();
-    //cout<<"chk1\n";
     Logger::initialize();
-    //cout<<"chk2\n";
     int switch1 = 0;
     str msg("Program started.");
     Logger::record(msg);

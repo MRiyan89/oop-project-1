@@ -10,6 +10,9 @@ void Account :: showAllAccount(){
 }
 
 void Account :: addAccount(){
+    if (p1 >= 10) {
+        throw str("Maximum account limit reached");
+    }
     int a = 0;
     char temp[100];
     cout<<"\n               ADD ACCOUNT NO. "<<account_no<< " DETAIL'S";
@@ -46,6 +49,9 @@ void Account :: addAccount(){
 }
 
 void Account :: deleteAccount(Account* &b1){
+    if (p1 <= 0) {
+        throw str("No accounts available to delete");
+    }
     char temp[100];
     str del_account;
     int index = 0;
@@ -75,6 +81,9 @@ void Account :: deleteAccount(Account* &b1){
 }
 
 void Account ::searchAccount(Account *& b1){
+    if (p1 <= 0) {
+        throw str("No accounts available to search");
+    }
     char temp[100];
     str ser_account;
     bool flag = 0;
@@ -97,6 +106,9 @@ void Account ::searchAccount(Account *& b1){
 }
 
 void Account ::modifyAccount(Account *& b1){
+    if (p1 <= 0) {
+        throw str("No accounts available to modify");
+    }
     char temp[100];
     str mod_account;
     bool flag = 0;
@@ -116,8 +128,7 @@ void Account ::modifyAccount(Account *& b1){
         }
     }
     if(flag == 0){
-        cout<<"\nACCOUNT NOT FOUND!";
-        cin.get();
+        throw str("ACCOUNT NOT FOUND!");
     }
 }
 

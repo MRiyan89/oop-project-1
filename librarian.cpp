@@ -10,6 +10,9 @@ void Librarian :: showAllLibrarain(){
 }
 
 void Librarian::addLibrarain(){
+    if (l3 >= 10) {
+        throw str("Maximum librarian limit reached");
+    }
     char temp[100];
     cout<<"\n               ADD Librarian NO. "<<librarian_no<< " DETAIL'S";
     cout<<"\n\nEnter name of the librarian: ";
@@ -29,6 +32,9 @@ void Librarian::addLibrarain(){
 }
 
 void Librarian :: deleteLibrarain(Librarian *&b1){
+    if (l3 <= 0) {
+        throw str("No librarians available to delete");
+    }
     str del_lib;
     char temp[100];
     int index = 0;
@@ -42,8 +48,7 @@ void Librarian :: deleteLibrarain(Librarian *&b1){
         }
     }
     if(index == 0){
-        cout<<"Librarian NOT FOUND!";
-        cin.get();
+        throw str("Librarian NOT FOUND!");
     }
     else{
         for(int i=index-1; i<l3-1; i++){
@@ -59,6 +64,9 @@ void Librarian :: deleteLibrarain(Librarian *&b1){
 }
 
 void Librarian :: searchLibrarain(Librarian *& b1){
+    if (l3 <= 0) {
+        throw str("No librarians available to search");
+    }
     char temp[100];
     str ser_lib;
     bool flag = 0;
@@ -72,18 +80,19 @@ void Librarian :: searchLibrarain(Librarian *& b1){
             str msg("Searched for a Librarian named: ");
             str msg2(msg + librarian_name);
             Logger::record(msg2);
-
             flag = 1;
         }
     }
     if(flag == 0){
-        cout<<"\nLibrarian NOT FOUND!";
-        cin.get();
+        throw str("Librarian NOT FOUND!");
     }
     
 }
 
 void Librarian ::modifyLibrarain(Librarian *& b1){
+    if (l3 <= 0) {
+        throw str("No librarians available to modify");
+    }
     char temp[100];
     str mod_lib;
     bool flag = 0;
@@ -103,8 +112,7 @@ void Librarian ::modifyLibrarain(Librarian *& b1){
         }
     }
     if(flag == 0){
-        cout<<"\nLibrarian NOT FOUND!";
-        cin.get();
+        throw str("Librarian NOT FOUND!");
     }
 
 }

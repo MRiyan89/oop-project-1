@@ -148,3 +148,182 @@ Program started.
 Program ended
 Log file closed.
 
+
+Log file initialized.
+Program started.
+Record not found of Librarian named: sample librarian
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Record not found for deletion of Librarian named: jana
+Record not found of Librarian named: jsnxa
+Record not found for modification of Librarian named: anca.
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new book added named: book2
+deleted record of book named: B002C
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+Entire detail seen of book named: book1
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new student account added named: S001oI±,˙ '
+A new student account added named: std3n∑∞&˙
+Modified an account named: S002les\Git\u∏∞?˙a"
+
+Log file initialized.
+Program started.
+Entire detail seen of account named: std2
+Searched for an account named: std2
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+A new student account added named: std2
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Entire detail seen of account named: std2
+deleted record of an acocunt named: std2ÃÜa
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new student account added named: std2
+Entire detail seen of account named: sample personÉ›Ç
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Entire detail seen of account named: std2
+deleted record of an acocunt named: std2ı»≥/R#
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new faculty account added named: flt1;kö?i
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Entire detail seen of account named: flt1
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2ﬂ√‘ë
+Entire detail seen of account named: flt1
+Entire detail seen of account named: flt1
+Record not found for deletion of account named: flt2ë
+Entire detail seen of account named: sample personl
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Entire detail seen of account named: flt1
+deleted record of an acocunt named: flt1@öA
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new faculty account added named: flt1
+deleted record of an acocunt named: flt1`Ë”Jn!
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2
+Entire detail seen of account named: flt1le person
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new faculty account added named: flt1
+deleted record of an acocunt named: flt19IùE$
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new student account added named: flt1
+deleted record of an acocunt named: flt1˙âgè\
+Entire detail seen of account named: sample person
+Entire detail seen of account named: std2le person
+Entire detail seen of account named: flt1
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new faculty account added named: flt1
+deleted record of an acocunt named: flt1 (Ü¥e
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+
+Log file initialized.
+Program started.
+A new faculty account added named: flt1
+deleted record of an acocunt named: flt1Ôå‘ d
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new faculty account added named: flt1
+deleted record of an acocunt named: flt1˝8ØÎ.$
+Program ended
+Log file closed.
+
+
+Log file initialized.
+Program started.
+A new faculty account added named: flt1
+deleted record of an acocunt named: flt1úVÃÖ«
+Program ended
+Log file closed.
+

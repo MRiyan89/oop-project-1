@@ -19,10 +19,10 @@ int main(){
     Logger::record(msg);
     Menu m1;
     Login l2;
-
-    Account *acc1 = new Account[10];
-    Books *b1 = new Books[10];
-    Librarian *l1 = new Librarian[10];
+    int maxacc = 10 , maxbook = 10 , maxlibrarian = 10;
+    Account *acc1 = new Account[maxacc];
+    Books *b1 = new Books[maxbook];
+    Librarian *l1 = new Librarian[maxlibrarian];
     try{
     s->read(acc1,b1,l1);}
     catch(const str& e){

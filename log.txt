@@ -327,3 +327,13 @@ deleted record of an acocunt named: flt1œVÌ…Ç
 Program ended
 Log file closed.
 
+
+Log file initialized.
+Program started.
+Entire detail seen of Librarian named: sample librarian
+Entire detail seen of Librarian named: lib2
+Entire detail seen of Librarian named: lib3
+Entire detail seen of Librarian named: lib 5.
+Program ended
+Log file closed.
+

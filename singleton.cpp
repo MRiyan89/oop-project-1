@@ -14,8 +14,7 @@ Singleton* Singleton :: getInstance() {
 void Singleton :: write(Account* &a2, Books* &b1, Librarian* &l1) {
     fstream f("data.bin", ios::out | ios::binary);
     if (!f.is_open()) {
-        cerr << "Error opening file for writing!" << endl;
-        return;
+        throw str("Error opening file for writing!");
     }
     f.write((char*)&p1, sizeof(int));
     for (int i = 0; i < p1; i++) {
@@ -34,8 +33,7 @@ void Singleton :: write(Account* &a2, Books* &b1, Librarian* &l1) {
 void Singleton :: read(Account* &a2, Books* &b1, Librarian* &l1) {
     fstream f("data.bin", ios::in | ios::binary);
     if (!f.is_open()) {
-        cerr << "No existing data file found, starting fresh" << endl;
-        return;
+        throw str("No existing data file found, starting fresh");
     }
     f.read((char*)&p1, sizeof(int));
     for (int i = 0; i < p1; i++) {

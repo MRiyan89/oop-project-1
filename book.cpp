@@ -10,6 +10,9 @@ void Books :: show_all_books(){
 }
 
 void Books::add_book() {
+    if (a1 >= 10) {
+        throw str("Maximum book limit reached");
+    }
     char temp[100];
     cout<<"\n                   ADD BOOK NO. "<< book_no << " DETAIL'S";
     cout<<"\n\nEnter title of the book: ";
@@ -32,6 +35,9 @@ void Books::add_book() {
 }
 
 void Books :: delete_book(Books* &b1){
+    if (a1 <= 0) {
+        throw str("No books available to delete");
+    }
     str del_book;
     int index = 0;
     cout<<"\n                 DELETE BOOK";
@@ -46,8 +52,7 @@ void Books :: delete_book(Books* &b1){
     }
 
     if(index == 0){
-        cout<<"BOOK NOT FOUND!";
-        cin.get();
+        throw str("BOOK NOT FOUND!");
     }
     else{
         for(int i = index-1; i < a1-1; i++){
@@ -63,6 +68,9 @@ void Books :: delete_book(Books* &b1){
 }
 
 void Books :: search_book(Books* &b1){
+    if (a1 <= 0) {
+        throw str("No books available to search");
+    }
     str ser_book;
     bool flag = 0;
 
@@ -78,8 +86,7 @@ void Books :: search_book(Books* &b1){
         }
     }
     if(flag == 0){
-        cout<<"\nBOOK NOT FOUND!";
-        cin.get();
+        throw str("BOOK NOT FOUND!");
     }
     else{
         str msg("Searched for a book named: ");
@@ -89,6 +96,9 @@ void Books :: search_book(Books* &b1){
 }
 
 void Books :: modify_book(Books* &b1){
+    if (a1 <= 0) {
+        throw str("No books available to modify");
+    }
     str mod_book;
     bool flag = 0;
     cout<<"\n             MODIFY A BOOK";
@@ -108,8 +118,7 @@ void Books :: modify_book(Books* &b1){
         }
     }
     if(flag == 0){
-        cout<<"\nBOOK NOT FOUND!";
-        cin.get();
+        throw str("BOOK NOT FOUND!");
     }
     
 }

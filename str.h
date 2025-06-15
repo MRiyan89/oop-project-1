@@ -22,6 +22,7 @@ public:
 	char operator[](int index)const;
 	char& operator[](int index);
 	bool operator==(const str& s);
+    bool operator!=(const str& s);
 	str operator +(const str& s);
 	str& operator +=(const str& s);
 	friend ostream& operator<< (ostream& os, const str& s);

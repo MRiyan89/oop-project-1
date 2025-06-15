@@ -133,6 +133,19 @@ bool str::operator==(const str& s) {
 	}
 	return true;
 }
+
+bool str::operator!=(const str& s) {
+    if (this->size != s.size) {
+        return true;
+    }
+    for (int i = 0; i < this->size; i++) {
+        if (this->ptr[i] != s.ptr[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
 str str ::operator+(const str& s) {
 	str res;
 	res.size = this->size + s.size;

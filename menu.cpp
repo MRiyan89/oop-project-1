@@ -10,7 +10,8 @@ void Menu :: admin(){
     cout<<"4- Modify an Librarian account\n";
     cout<<"5- Show all Librarian accounts Details\n";
     cout<<"6- go back to main menu \n";
-    cout<<"7- exit from code";
+    cout<<"7- exit from code\nYour choice: ";
+    
 }
 
 void Menu :: student(){
@@ -20,7 +21,7 @@ void Menu :: student(){
     cout<<"Choose '2' for book return\n";
     cout<<"Choose '3' to get details of issued books\n";
     cout<<"Choose '4' to go back to main menu\n";
-    cout<<"Choose '5' to exit from code: ";
+    cout<<"Choose '5' to exit from code\nYour choice: ";
 }
 
 void Menu :: librarian(){
@@ -37,7 +38,7 @@ void Menu :: librarian(){
     cout<<"9- Search a book\n";
     cout<<"10- Modify a book\n";
     cout<<"11- To go back to main menu: \n";
-    cout<<"12- To exit from code: ";
+    cout<<"12- To exit from code\nYour choice: ";
 }
 
 void Menu :: facultyMember(){
@@ -47,5 +48,5 @@ void Menu :: facultyMember(){
     cout<<"Choose '2' for book return\n";
     cout<<"Choose '3' to get details of issued books\n";
     cout<<"Choose '4' to go back to main menu\n";
-    cout<<"Choose '5' to exit from code: ";
+    cout<<"Choose '5' to exit from code\nYour choice: ";
 }

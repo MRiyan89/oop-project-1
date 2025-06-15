@@ -12,13 +12,13 @@ str Login ::getterPassword() {
 }
 
 int Login :: getter( Account* &a3 ,Librarian* &l1){
-    char temp[100];
+    str temp;
     cout<<"\n                 WELCOME TO THE LIBRARY\n\n";
     cout<<"Enter your ID Number: ";
-    cin.getline(temp, 100);
+    cin>>temp;
     id = temp;
     cout<<"\nEnter your password: ";
-    cin.getline(temp, 100);
+    cin>>temp;
     password = temp;
     Menu m1;
     int condition = 0;
